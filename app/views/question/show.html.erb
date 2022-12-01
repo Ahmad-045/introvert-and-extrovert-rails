@@ -1,0 +1,15 @@
+<div class='p-5 max-w-xl'>
+  <p><strong>Question: &nbsp; </strong><%= @question.content %></p>
+  <ul>
+
+  <%= form_with url:"/add_result", method: :post, local: true do |f| %>
+    <%= f.text_field :question_id, value: @question.id,  class: "form-control hidden" %>
+    <% @question.options.each do |option| %>
+      <p class='my-1'>
+        <%= f.radio_button :option_type , option.option_type %>
+        <%= f.label :content, option.content %>
+      </p>
+    <% end %>
+    <%= f.submit 'Next', class:'cursor-pointer bg-blue-600 text-white rounded-md px-2 py-1 float-right' %>
+  <% end %>
+</div>
