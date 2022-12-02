@@ -13,8 +13,7 @@ class QuestionController < ApplicationController
 
   def show
     @question_count = @@results.length + 1
-    q_index = ([*1..(Question::DATA.length)] - @@results.keys).sample
-    @question = Question::DATA.select{|obj| obj[:id] == q_index}.sample
+    @question = Question::DATA.select{|obj| !@@results.key?(obj[:id])}.sample  # because it returns an array., sample is used to take randomly anyone from it
 
     redirect_to root_path if @@results.length == 5
   end
@@ -23,7 +22,5 @@ class QuestionController < ApplicationController
     @@results[params[:question_id].to_i] = params[:option_type]
     redirect_to question_path(params[:question_id])
   end
-
-  private
 
 end
