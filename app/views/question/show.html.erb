@@ -10,6 +10,6 @@
         <%= f.label option.id.to_s, option.content, class:'cursor-pointer' %>
       </div>
     <% end %>
-    <%= f.submit 'Submit', class:'cursor-pointer bg-blue-600 text-white rounded-md px-2 py-1 float-right mt-4' %>
+    <%= f.submit (@question_count < 5 ? 'Next' : 'Submit'), class:'cursor-pointer bg-blue-600 text-white rounded-md px-2 py-1 float-right mt-4' %>
   <% end %>
 </div>
