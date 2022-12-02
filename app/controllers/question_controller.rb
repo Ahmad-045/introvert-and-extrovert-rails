@@ -1,5 +1,6 @@
 class QuestionController < ApplicationController
 
+  # {<Question_Id>: <option_type>} ===> [{"2": "Interovert"},...]
   @@results = {}
 
   def index
@@ -15,7 +16,6 @@ class QuestionController < ApplicationController
     @question = Question.where.not(id: @@results.keys).order("RANDOM()").first
 
     redirect_to root_path if @@results.length == 5
-
   end
 
   def add_result
