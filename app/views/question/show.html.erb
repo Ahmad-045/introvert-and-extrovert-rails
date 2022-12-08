@@ -1,13 +1,13 @@
 <div class='max-w-6xl rounded-md'>
-  <p class='bg-green-200 border border-green-200 p-3 rounded-md'><strong>Question (<%= @question_count%>/5): &nbsp; </strong><%= @question[:content] %></p>
+  <p class='bg-green-200 border border-green-200 p-3 rounded-md'><strong>Question (<%= @question_count%>/5): &nbsp; </strong><%= @question['content'] %></p>
   <ul>
 
-  <%= form_with url:"/add_result", method: :post, local: true, class: ' p-3' do |f| %>
-    <%= f.text_field :question_id, value: @question[:id],  class: "form-control hidden" %>
-    <% @question[:options].each_with_index do |option, index| %>
+  <%= form_with url:"/add_result", method: :post, remote: true, class: ' p-3' do |f| %>
+    <%= f.text_field :question_id, value: @question['id'],  class: "form-control hidden" %>
+    <% @question['options'].each_with_index do |option, index| %>
       <div class='my-1'>
-        <%= f.radio_button :option_type, option[:option_type] , class: 'cursor-pointer ', id: index, required: true %>
-        <%= f.label index, option[:content], class:'cursor-pointer' %>
+        <%= f.radio_button :option_type, option['option_type'] , class: 'cursor-pointer ', id: index, required: true %>
+        <%= f.label index, option['content'], class:'cursor-pointer' %>
       </div>
     <% end %>
     <%= f.submit (@question_count < 5 ? 'Next' : 'Submit'), class:'cursor-pointer bg-blue-600 text-white rounded-md px-2 py-1 float-right mt-4' %>

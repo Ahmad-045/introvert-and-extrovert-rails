@@ -9,8 +9,11 @@
 
 # db/seeds.rb
 
-questionData = [
+require 'json'
+
+QUESTIONS = [
   {
+    id: 1,
     content: 'You`re really busy at work and a colleague is telling you their life story and personal woes. You: ',
     options: [
       {content: 'Don`t dare to interrupt them', option_type:'introvert'},
@@ -20,6 +23,7 @@ questionData = [
     ]
   },
   {
+    id: 2,
     content: 'You`ve been sitting in the doctor`s waiting room for more than 25 minutes. You: ',
     options: [
       {content: 'Look at your watch every two minutes ',option_type:'introvert'},
@@ -29,6 +33,7 @@ questionData = [
     ]
   },
   {
+    id: 3,
     content: 'You`re having an animated discussion with a colleague regarding a project that you`re in charge of. You: ',
     options: [
       {content: 'Don`t dare contradict them ',option_type: 'introvert'},
@@ -38,6 +43,7 @@ questionData = [
     ]
   },
   {
+    id: 4,
     content: 'You are taking part in a guided tour of a museum. You: ',
     options: [
       {content: 'Are right up the front, adding your own comments in a loud voice ',option_type: 'extrovert'},
@@ -47,6 +53,7 @@ questionData = [
     ]
   },
   {
+    id: 5,
     content: 'During dinner parties at your home, you have a hard time with people who: ',
     options: [
       {content: 'Ask you to tell a story in front of everyone else ',option_type: 'introvert'},
@@ -56,6 +63,7 @@ questionData = [
     ]
   },
   {
+    id: 6,
     content: 'You crack a joke at work, but nobody seems to have noticed. You: ',
     options: [
       {content: 'Think it`s for the best — it was a lame joke anyway' ,option_type: 'introvert'},
@@ -65,6 +73,7 @@ questionData = [
     ]
   },
   {
+    id: 7,
     content: ' This morning, your agenda seems to be free. You: ',
     options: [
       {content: 'Know that somebody will find a reason to come and bother you' ,option_type: 'introvert'},
@@ -74,6 +83,7 @@ questionData = [
     ]
   },
   {
+    id: 8,
     content: 'During dinner, the discussion moves to a subject about which you know nothing at all. You: ',
     options: [
       {content: 'Ask lots of questions to learn more about it ' ,option_type: 'extrovert'},
@@ -83,6 +93,7 @@ questionData = [
     ]
   },
   {
+    id: 9,
     content: ' You`re out with a group of friends and there`s a person who`s quite shy and doesn`t talk much. You: ',
     options: [
       {content: 'Notice that they`re alone, but don`t go over to talk with them' ,option_type: 'introvert'},
@@ -92,6 +103,7 @@ questionData = [
     ]
   },
   {
+    id: 10,
     content: 'At work, somebody asks for your help for the hundredth time. You: ',
     options: [
       {content: 'Give them a hand, as usual ' ,option_type: 'introvert'},
@@ -101,6 +113,7 @@ questionData = [
     ]
   },
   {
+    id: 11,
     content: 'You`ve been see a movie with your family and the reviews are mixed. You: ',
     options: [
       {content: 'Don`t share your point of view with anyone' ,option_type: 'introvert'},
@@ -109,13 +122,6 @@ questionData = [
       {content: 'State your point of view with enthusiasm' ,option_type: 'extrovert'},
     ]
   },
-]
+].freeze
 
-
-questionData.each do |data|
-  q = Question.create(content: data[:content])
-
-  data[:options].each do |opt|
-    q.options.create!(opt)
-  end
-end
+REDIS.set('QUESTIONS', QUESTIONS.to_json)
