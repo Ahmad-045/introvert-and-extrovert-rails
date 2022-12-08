@@ -1,6 +1,6 @@
 class QuestionController < ApplicationController
 
-  # {<Question_Id>: <option_type>} ===> [{"2": "Interovert"},...]
+  # {<Question_Id>: <option_type>} ===> [{2: "Interovert"},...]
   @@results = {}
 
   def index
@@ -13,8 +13,10 @@ class QuestionController < ApplicationController
 
   def show
     @question_count = @@results.length + 1
-    @question = Question::DATA.select{|obj| !@@results.key?(obj[:id])}.sample  # because it returns an array., sample is used to take randomly anyone from it
 
+    # because select returns an array with matching fields.,
+    # sample is used to take randomly any one from the array as an object
+    @question = Question::DATA.select{|obj| !@@results.key?(obj[:id])}.sample
     redirect_to root_path if @@results.length == 5
   end
 
