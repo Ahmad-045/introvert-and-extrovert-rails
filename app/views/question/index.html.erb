@@ -9,34 +9,36 @@
     <% end %>
   </div>
 
-  <%= form_with url: '/question', method: :post, remote: true, class: ' p-3' do |f| %>
+
+  <%= form_with url: '/question', method: :post, remote: true  do |f| %>
+  <h1 class='text-center font-bold text-xl mb-5'>Add a New Question</h1>
     <div class='my-2'>
       <%= f.label :question %>
       <%= f.text_field :question_content, class: "border border-600-gray w-96" %>
     </div>
 
-    <div class='my-2'>
+    <div class='my-2 flex justify-between'>
       <%= f.label :option_1 %>
       <%= f.text_field :option_1, class: 'border border-600-gray' %>
-      <%= f.select :option_type_1, [["Interovet", "introvert"], ["Extrovert", "extrovert"]], selected: "introvert" %>
+      <%= f.select :option_type_1, [["Interovet", "introvert"], ["Extrovert", "extrovert"]], {}, {class: 'px-3 cursor-pointer'} %>
     </div>
 
-    <div class='my-2'>
+    <div class='my-2 flex justify-between'>
       <%= f.label :option_2 %>
       <%= f.text_field :option_2, class: 'border border-600-gray' %>
-      <%= f.select :option_type_2, [["Interovet", "introvert"], ["Extrovert", "extrovert"]], selected: "introvert" %>
+      <%= f.select :option_type_2, [["Interovet", "introvert"], ["Extrovert", "extrovert"]], {}, {class: 'px-3 cursor-pointer'} %>
     </div>
 
-    <div class='my-2'>
+    <div class='my-2 flex justify-between'>
       <%= f.label :option_3 %>
       <%= f.text_field :option_3, class: 'border border-600-gray' %>
-      <%= f.select :option_type_3, [["Interovet", "introvert"], ["Extrovert", "extrovert"]], selected: "introvert" %>
+      <%= f.select :option_type_3, [["Interovet", "introvert"], ["Extrovert", "extrovert"]], {}, {class: 'px-3 cursor-pointer'} %>
     </div>
 
-    <div class='my-2'>
+    <div class='my-2 flex justify-between'>
       <%= f.label :option_4 %>
       <%= f.text_field :option_4, class: 'border border-600-gray' %>
-      <%= f.select :option_type_4, [["Interovet", "introvert"], ["Extrovert", "extrovert"]], selected: "introvert" %>
+      <%= f.select :option_type_4, [["Interovet", "introvert"], ["Extrovert", "extrovert"]], {}, {class: 'px-3 cursor-pointer'} %>
     </div>
     <%= f.submit 'Create ', class:'cursor-pointer bg-blue-600 text-white rounded-md px-2 py-1 float-right mt-4' %>
   <% end %>

@@ -22,7 +22,8 @@ class QuestionController < ApplicationController
   end
 
   def create
-    reform_data_to_add
+    reshape_data_to_add
+    redirect_to root_path, notice: 'Question Created successfully'
   end
 
 
@@ -33,8 +34,7 @@ class QuestionController < ApplicationController
 
 
   private
-  def reform_data_to_add
-    byebug
+  def reshape_data_to_add
     questionData = JSON.parse(REDIS.get('QUESTIONS'))
     data = {
       id: questionData[questionData.length-1]['id'] + 1,
