@@ -4,7 +4,8 @@ class QuestionController < ApplicationController
   @@results = {}
 
   def index
-    @question = JSON.parse(REDIS.get('QUESTIONS'))[0]
+    @all_questions = get_questions
+    @question = @all_questions[0]
     if @@results.length == 5
       @ur_personality = @@results.values.max_by {|i| @@results.values.count(i)}
     end
@@ -17,13 +18,24 @@ class QuestionController < ApplicationController
     # because select returns an array with matching fields.,
     # sample is used to take randomly any one from the array as an object
 
-    @question = JSON.parse(REDIS.get('QUESTIONS')).select{|obj| !@@results.key?(obj['id'])}.sample
+    @question = get_questions.select{|obj| !@@results.key?(obj['id'])}.sample
     redirect_to root_path if @@results.length == 5
   end
 
   def create
     reshape_data_to_add
     redirect_to root_path, notice: 'Question Created successfully'
+  end
+
+  def destroy
+    questions = get_questions.select{ |obj| obj['id'] != params[:id].to_i}
+    if questions.length <= 4
+      redirect_to root_path, alert: 'Cannot delete the Questions'
+    else
+      REDIS.set('QUESTIONS', questions.to_json)
+      # render partial: 'all_questions', locals: {all_questions: questions}
+      redirect_to root_path, notice: 'Question Deleted successfully'
+    end
   end
 
 
@@ -35,7 +47,7 @@ class QuestionController < ApplicationController
 
   private
   def reshape_data_to_add
-    questionData = JSON.parse(REDIS.get('QUESTIONS'))
+    questionData = get_questions
     data = {
       id: questionData[questionData.length-1]['id'] + 1,
       content: params[:question_content],
@@ -48,6 +60,10 @@ class QuestionController < ApplicationController
     }
     questionData.push(data)
     REDIS.set('QUESTIONS', questionData.to_json)
+  end
+
+  def get_questions
+    JSON.parse(REDIS.get('QUESTIONS'))
   end
 
 end

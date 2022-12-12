@@ -62,66 +62,66 @@ QUESTIONS = [
       {content: 'Always drag the conversation back to themselves ',option_type: 'extrovert'},
     ]
   },
-  # {
-  #   id: 6,
-  #   content: 'You crack a joke at work, but nobody seems to have noticed. You: ',
-  #   options: [
-  #     {content: 'Think it`s for the best — it was a lame joke anyway' ,option_type: 'introvert'},
-  #     {content: 'Try again a bit later with one of your colleagues ' ,option_type: 'introvert'},
-  #     {content: 'Keep telling it until they pay attention' ,option_type: 'extrovert'},
-  #     {content: 'Wait to share it with your friends after work' ,option_type: 'introvert'},
-  #   ]
-  # },
-  # {
-  #   id: 7,
-  #   content: ' This morning, your agenda seems to be free. You: ',
-  #   options: [
-  #     {content: 'Know that somebody will find a reason to come and bother you' ,option_type: 'introvert'},
-  #     {content: 'Question your colleagues about a project that`s been worrying you' ,option_type: 'extrovert'},
-  #     {content: 'Heave a sigh of relief and look forward to a day without stress' ,option_type: 'introvert'},
-  #     {content: 'Pick up the phone and start filling up your agenda with meetings ' ,option_type: 'extrovert'},
-  #   ]
-  # },
-  # {
-  #   id: 8,
-  #   content: 'During dinner, the discussion moves to a subject about which you know nothing at all. You: ',
-  #   options: [
-  #     {content: 'Ask lots of questions to learn more about it ' ,option_type: 'extrovert'},
-  #     {content: 'Don`t dare show that you don`t know anything about the subject ' ,option_type: 'introvert'},
-  #     {content: 'Barely follow the discussion' ,option_type: 'introvert'},
-  #     {content: 'Change the subject of discussion' ,option_type: 'extrovert'},
-  #   ]
-  # },
-  # {
-  #   id: 9,
-  #   content: ' You`re out with a group of friends and there`s a person who`s quite shy and doesn`t talk much. You: ',
-  #   options: [
-  #     {content: 'Notice that they`re alone, but don`t go over to talk with them' ,option_type: 'introvert'},
-  #     {content: 'Go and have a chat with them' ,option_type: 'extrovert'},
-  #     {content: 'Shoot some friendly smiles in their direction ' ,option_type: 'extrovert'},
-  #     {content: 'Hardly notice them at all' ,option_type: 'introvert'},
-  #   ]
-  # },
-  # {
-  #   id: 10,
-  #   content: 'At work, somebody asks for your help for the hundredth time. You: ',
-  #   options: [
-  #     {content: 'Give them a hand, as usual ' ,option_type: 'introvert'},
-  #     {content: 'Ask them, please, to find somebody else for a change' ,option_type: 'extrovert'},
-  #     {content: 'Accept — you`re known for being helpful ' ,option_type: 'introvert'},
-  #     {content: 'Loudly make it known that you`re annoyed' ,option_type: 'extrovert'},
-  #   ]
-  # },
-  # {
-  #   id: 11,
-  #   content: 'You`ve been see a movie with your family and the reviews are mixed. You: ',
-  #   options: [
-  #     {content: 'Don`t share your point of view with anyone' ,option_type: 'introvert'},
-  #     {content: 'Try to bring the others round to your point of view' ,option_type: 'extrovert'},
-  #     {content: 'Didn`t like the film, but keep your views to yourself when asked ' ,option_type: 'introvert'},
-  #     {content: 'State your point of view with enthusiasm' ,option_type: 'extrovert'},
-  #   ]
-  # },
+  {
+    id: 6,
+    content: 'You crack a joke at work, but nobody seems to have noticed. You: ',
+    options: [
+      {content: 'Think it`s for the best — it was a lame joke anyway' ,option_type: 'introvert'},
+      {content: 'Try again a bit later with one of your colleagues ' ,option_type: 'introvert'},
+      {content: 'Keep telling it until they pay attention' ,option_type: 'extrovert'},
+      {content: 'Wait to share it with your friends after work' ,option_type: 'introvert'},
+    ]
+  },
+  {
+    id: 7,
+    content: ' This morning, your agenda seems to be free. You: ',
+    options: [
+      {content: 'Know that somebody will find a reason to come and bother you' ,option_type: 'introvert'},
+      {content: 'Question your colleagues about a project that`s been worrying you' ,option_type: 'extrovert'},
+      {content: 'Heave a sigh of relief and look forward to a day without stress' ,option_type: 'introvert'},
+      {content: 'Pick up the phone and start filling up your agenda with meetings ' ,option_type: 'extrovert'},
+    ]
+  },
+  {
+    id: 8,
+    content: 'During dinner, the discussion moves to a subject about which you know nothing at all. You: ',
+    options: [
+      {content: 'Ask lots of questions to learn more about it ' ,option_type: 'extrovert'},
+      {content: 'Don`t dare show that you don`t know anything about the subject ' ,option_type: 'introvert'},
+      {content: 'Barely follow the discussion' ,option_type: 'introvert'},
+      {content: 'Change the subject of discussion' ,option_type: 'extrovert'},
+    ]
+  },
+  {
+    id: 9,
+    content: ' You`re out with a group of friends and there`s a person who`s quite shy and doesn`t talk much. You: ',
+    options: [
+      {content: 'Notice that they`re alone, but don`t go over to talk with them' ,option_type: 'introvert'},
+      {content: 'Go and have a chat with them' ,option_type: 'extrovert'},
+      {content: 'Shoot some friendly smiles in their direction ' ,option_type: 'extrovert'},
+      {content: 'Hardly notice them at all' ,option_type: 'introvert'},
+    ]
+  },
+  {
+    id: 10,
+    content: 'At work, somebody asks for your help for the hundredth time. You: ',
+    options: [
+      {content: 'Give them a hand, as usual ' ,option_type: 'introvert'},
+      {content: 'Ask them, please, to find somebody else for a change' ,option_type: 'extrovert'},
+      {content: 'Accept — you`re known for being helpful ' ,option_type: 'introvert'},
+      {content: 'Loudly make it known that you`re annoyed' ,option_type: 'extrovert'},
+    ]
+  },
+  {
+    id: 11,
+    content: 'You`ve been see a movie with your family and the reviews are mixed. You: ',
+    options: [
+      {content: 'Don`t share your point of view with anyone' ,option_type: 'introvert'},
+      {content: 'Try to bring the others round to your point of view' ,option_type: 'extrovert'},
+      {content: 'Didn`t like the film, but keep your views to yourself when asked ' ,option_type: 'introvert'},
+      {content: 'State your point of view with enthusiasm' ,option_type: 'extrovert'},
+    ]
+  },
 ].freeze
 
 REDIS.set('QUESTIONS', QUESTIONS.to_json)
