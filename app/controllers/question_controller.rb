@@ -16,7 +16,7 @@ class QuestionController < ApplicationController
     @question_count = @@results.length + 1
 
     # because select returns an array with matching fields.,
-    # sample is used to take randomly any one from the array as an object
+    # sample is used to take r$('#question-<%= @question_id%>').html('');andomly any one from the array as an object
 
     @question = get_questions.select{|obj| !@@results.key?(obj['id'])}.sample
     redirect_to root_path if @@results.length == 5
@@ -29,13 +29,9 @@ class QuestionController < ApplicationController
 
   def destroy
     questions = get_questions.select{ |obj| obj['id'] != params[:id].to_i}
-    if questions.length <= 4
-      redirect_to root_path, alert: 'Cannot delete the Questions'
-    else
-      REDIS.set('QUESTIONS', questions.to_json)
-      # render partial: 'all_questions', locals: {all_questions: questions}
-      redirect_to root_path, notice: 'Question Deleted successfully'
-    end
+    redirect_to root_path, alert: 'Cannot delete the Questions., Minimum Question should be 5' if questions.length <= 4
+    @question_id = params[:id]
+    REDIS.set('QUESTIONS', questions.to_json)
   end
 
 
