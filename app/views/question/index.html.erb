@@ -9,8 +9,23 @@
     <% end %>
   </div>
 
+  <div class='flex flex-wrap gap-3'>
+    <div class='shadow-lg p-6 h-96 overflow-y-scroll'>
+    <h1 class='text-center font-bold text-xl mb-5'>All Questions</h1>
+    <div id='questions'>
+      <% @all_questions.each_with_index do |q, index| %>
+        <div id='question-<%= q['id']%>' class='flex justify-between my-3'>
+          <p class='mr-3'><strong><%= q['id']%>: </strong><%= q['content']%></p>
+          <div>
+            <%= link_to 'Delete', question_path(q['id']), method: :delete, remote: true, class: 'bg-red-500 text-white font-medium px-2 py-1 rounded-md', data: { confirm: 'Are You sure to Remove this Question'} %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 
-  <div class='shadow-lg p-6'>
+
+  <div class='shadow-lg p-6 h-80'>
     <%= form_with url: '/question', method: :post, remote: true  do |f| %>
     <h1 class='text-center font-bold text-xl mb-5'>Add a New Question</h1>
       <div class='my-2'>
@@ -44,8 +59,6 @@
       <%= f.submit 'Create ', class:'cursor-pointer bg-blue-600 text-white rounded-md px-2 py-1 float-right mt-4' %>
     <% end %>
   </div>
-
-
-  <%= render partial: 'all_questions', locals: {all_questions: @all_questions} %>
+  </div>
 
 </div>
