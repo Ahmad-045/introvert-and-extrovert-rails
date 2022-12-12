@@ -23,8 +23,7 @@ class QuestionController < ApplicationController
   end
 
   def create
-    reshape_data_to_add
-    redirect_to root_path, notice: 'Question Created successfully'
+    @new_question = reshape_data_to_add
   end
 
   def destroy
@@ -56,6 +55,7 @@ class QuestionController < ApplicationController
     }
     questionData.push(data)
     REDIS.set('QUESTIONS', questionData.to_json)
+    return data
   end
 
   def get_questions
