@@ -15,9 +15,12 @@
     <div id='questions'>
       <% @all_questions.each_with_index do |q, index| %>
         <div id='question-<%= q['id']%>' class='flex justify-between my-3'>
-          <p class='mr-3'><strong><%= q['id']%>: </strong><%= q['content']%></p>
-          <div>
-            <%= link_to 'Delete', question_path(q['id']), method: :delete, remote: true, class: 'bg-red-500 text-white font-medium px-2 py-1 rounded-md', data: { confirm: 'Are You sure to Remove this Question'} %>
+          <p class=''><strong><%= q['id']%>: </strong><%= q['content']%></p>
+          <div class='flex gap-3'>
+            <%# <div> %>
+              <%#= link_to 'Edit', question_path(q['id']), method: :patch, remote: true, class: 'bg-blue-500 text-white font-medium px-2 py-1 rounded-md' %>
+            <%# </div> %>
+            <div><%= link_to 'Delete', question_path(q['id']), method: :delete, remote: true, class: 'bg-red-500 text-white font-medium px-2 py-1 rounded-md', data: { confirm: 'Are You sure to Remove this Question'} %></div>
           </div>
         </div>
       <% end %>
@@ -34,33 +37,31 @@
       </div>
 
       <div class='my-2 flex justify-between gap-2'>
-        <div>
-          <%= f.label :option_1 %>
-          <%= f.text_field :option_1, class: 'border border-600-gray' %>
-        </div>
+        <%= f.label :option_1 %>
+        <%= f.text_field :option_1, class: 'border border-600-gray' %>
         <%= f.label :option_type_1, 'Answer Type: ' %>
-        <%= f.select :option_type_1, [["Interovert", "introvert"], ["Extrovert", "extrovert"]], {}, {class: 'px-3 cursor-pointer'} %>
+        <%= f.select :option_type_1, [["Introvert", "introvert"], ["Extrovert", "extrovert"]], {}, {class: 'px-3 cursor-pointer'} %>
       </div>
 
       <div class='my-2 flex justify-between'>
         <%= f.label :option_2 %>
         <%= f.text_field :option_2, class: 'border border-600-gray' %>
         <%= f.label :option_type_2, 'Answer Type: ' %>
-        <%= f.select :option_type_2, [["Interovert", "introvert"], ["Extrovert", "extrovert"]], {}, {class: 'px-3 cursor-pointer'} %>
+        <%= f.select :option_type_2, [["Introvert", "introvert"], ["Extrovert", "extrovert"]], {}, {class: 'px-3 cursor-pointer'} %>
       </div>
 
       <div class='my-2 flex justify-between'>
         <%= f.label :option_3 %>
         <%= f.text_field :option_3, class: 'border border-600-gray' %>
         <%= f.label :option_type_3, 'Answer Type: ' %>
-        <%= f.select :option_type_3, [["Interovert", "introvert"], ["Extrovert", "extrovert"]], {}, {class: 'px-3 cursor-pointer'} %>
+        <%= f.select :option_type_3, [["Introvert", "introvert"], ["Extrovert", "extrovert"]], {}, {class: 'px-3 cursor-pointer'} %>
       </div>
 
       <div class='my-2 flex justify-between'>
         <%= f.label :option_4 %>
         <%= f.text_field :option_4, class: 'border border-600-gray' %>
         <%= f.label :option_type_4, 'Answer Type: ' %>
-        <%= f.select :option_type_4, [["Interovert", "introvert"], ["Extrovert", "extrovert"]], {}, {class: 'px-3 cursor-pointer'} %>
+        <%= f.select :option_type_4, [["Introvert", "introvert"], ["Extrovert", "extrovert"]], {}, {class: 'px-3 cursor-pointer'} %>
       </div>
       <%= f.submit 'Create ', class:'cursor-pointer bg-blue-600 text-white rounded-md px-2 py-1 float-right mt-4' %>
     <% end %>

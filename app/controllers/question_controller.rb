@@ -26,6 +26,10 @@ class QuestionController < ApplicationController
     @new_question = reshape_data_to_add
   end
 
+  def update
+    byebug
+  end
+
   def destroy
     questions = get_questions.select{ |obj| obj['id'] != params[:id].to_i}
     redirect_to root_path, alert: 'Cannot delete the Questions., Minimum Question should be 5' if questions.length <= 4
