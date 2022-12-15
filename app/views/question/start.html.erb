@@ -1,0 +1,11 @@
+<div class='flex justify-center items-center flex-col gap-10'>
+  <h3 class='font-bold text-lg text-center'>Who are you.? An Introvet or an extrovert., <br>Find out this by using filling our Questionaire</h3>
+  <%= link_to 'Start Questionaire', question_index_path, class: 'text-lg bg-blue-600 text-white px-3 py-1 rounded-md'  %>
+
+  <div>
+    <% unless @ur_personality.nil? %>
+      <p class='text-xl bg-green-200 px-3 py-1 rounded-md text-gray-800'>You are an <strong><%= @ur_personality%></strong> by your answers analysis</p>
+    <% end %>
+  </div>
+
+</div>
