@@ -5,19 +5,19 @@
       <%= f.fields_for :answers do |fo| %>
         <% ques['options'].each_with_index do |option, i| %>
           <div class='my-1'>
-            <%= fo.radio_button i, option['option_type'] , class: 'cursor-pointer ', id: '_answers_'+i.to_s+'q'+ques['id'].to_s, name: 'q'+ques['id'].to_s, required: true %>
+            <%= fo.radio_button i, option['option_type'], checked: true  , class: 'cursor-pointer ', id: '_answers_'+i.to_s+'q'+ques['id'].to_s, name: 'q'+ques['id'].to_s, required: true if i == 0%>
+            <%= fo.radio_button i, option['option_type'] , class: 'cursor-pointer ', id: '_answers_'+i.to_s+'q'+ques['id'].to_s, name: 'q'+ques['id'].to_s, required: true unless i ==0%>
             <%= fo.label i.to_s+'q'+ques['id'].to_s, option['content'], class:'cursor-pointer' %>
           </div>
         <% end %>
       <% end %>
-      <% if index+1 == 5%>
+
+      <% if index+1 == 5 %>
         <button class='bg-blue-600 text-medium px-3 py-1 text-white float-right rounded-md cursor-pointer'>Submit</button>
       <% else %>
         <button type='button' class='bg-blue-600 text-medium px-3 py-1 text-white text-center float-right rounded-md cursor-pointer flex justify-center items-center font-medium nextButton'>Next<button>
       <% end %>
 
     </div>
-
   <% end %>
-
 <% end %>
