@@ -62,3 +62,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "figaro", "~> 1.2"
+
+gem "redis", "~> 5.0"
