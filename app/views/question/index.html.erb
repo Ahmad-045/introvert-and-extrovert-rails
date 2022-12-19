@@ -1,8 +1,7 @@
 <%= form_with url: result_url, method: :post, remote: true, class: ' p-3' do |f| %>
   <% @questions.each_with_index do |ques, index| %>
-    <div class='max-w-6xl rounded-md' id='q<%=index%>'>
+    <div class='max-w-6xl rounded-md <%= 'hidden' if index != 0%>' id='q<%=index%>'>
       <p class='bg-green-200 border border-green-200 p-3 rounded-md'><strong>Question (<%= index+1%>/5): &nbsp; </strong><%= ques['content'] %></p>
-
       <%= f.fields_for :answers do |fo| %>
         <% ques['options'].each_with_index do |option, i| %>
           <div class='my-1'>
@@ -11,9 +10,14 @@
           </div>
         <% end %>
       <% end %>
+      <% if index+1 == 5%>
+        <button class='bg-blue-600 text-medium px-3 py-1 text-white float-right rounded-md cursor-pointer'>Submit</button>
+      <% else %>
+        <button type='button' class='bg-blue-600 text-medium px-3 py-1 text-white text-center float-right rounded-md cursor-pointer flex justify-center items-center font-medium nextButton'>Next<button>
+      <% end %>
 
-    <% end %>
-  </div>
+    </div>
 
-  <button class='bg-blue-600 text-medium px-3 py-1 text-white float-right rounded-md cursor-pointer'>Submit</button>
+  <% end %>
+
 <% end %>

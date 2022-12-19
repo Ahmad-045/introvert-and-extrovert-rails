@@ -1,11 +1,11 @@
 class QuestionController < ApplicationController
 
   # {<Question_Id>: <option_type>} ===> [{2: "Interovert"},...]
-  @@q_result = []
+  @@q_result = {}
 
-  def start;
+  def start
     @ur_personality = @@q_result.values.max_by {|i| @@q_result.values.count(i)} unless @@q_result.nil?
-  end;
+  end
 
   def index
     @questions = get_questions.sample(5)
@@ -16,9 +16,7 @@ class QuestionController < ApplicationController
     redirect_to :start
   end
 
-
   private
-
   def get_questions
     JSON.parse(REDIS.get('QUESTIONS'))
   end

@@ -13,4 +13,23 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require jquery3
+//= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function () {
+  const questionArray = ['q0', 'q1', 'q2', 'q3', 'q4'];
+  $('#q0').removeClass('hidden');
+
+  let i = 1;
+
+  $('.nextButton').on('click', function () {
+    questionArray.map((id) => {
+      $(`#${id}`).addClass('hidden');
+    });
+
+    $(`#${questionArray[i]}`).removeClass('hidden');
+
+    i++;
+  });
+});
