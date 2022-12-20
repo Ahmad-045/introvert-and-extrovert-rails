@@ -1,9 +1,0 @@
-
-document.getElementById('questions').innerHTML += `<div id='question-<%= @new_question[:id]%>' class='flex justify-between my-3'>
-        <p class='mr-3'><strong><%= @new_question[:id]%>: </strong><%= @new_question[:content]%></p>
-        <div>
-          <%= link_to 'Delete', question_path(@new_question[:id]), method: :delete, remote: true, class: 'bg-red-500 text-white font-medium px-2 py-1 rounded-md', data: { confirm: 'Are You sure to Remove this Question'} %>
-        </div>
-      </div>`
-
-alert('Question Added Successfully');
